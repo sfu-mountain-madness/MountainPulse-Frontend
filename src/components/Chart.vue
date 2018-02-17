@@ -35,6 +35,22 @@ export default {
         },
         series: [{
           type: 'line',
+          symbol: 'triangle',
+          symbolSize: 10,
+          lineStyle: {
+            normal: {
+              color: 'green',
+              width: 2,
+              type: 'dashed'
+            }
+          },
+          itemStyle: {
+            normal: {
+              borderWidth: 2,
+              borderColor: '#77777',
+              color: '#b3b3ff'
+            }
+          },
           data: []
         }],
         weather: null
@@ -44,8 +60,19 @@ export default {
   mounted: function () {
     this.weatherChart = echarts.init(document.getElementById('weatherData'))
     this.weatherChart.setOption(this.weatherConfig)
+    this.weatherChart.on('click', function (params) {
+      console.log('clicked')
+      // change the line style
+      // this.dispatchAction({
+      //   type: 'highlight',
+      //   seriesIndex: params.seriesIndex
+      // })
+      // this.dispatchAction({
+      //   type: 'downlight',
+      //   seriesIndex: params.seriesIndex
+      // })
+    })
   },
-  methods: {},
   apollo: {
     weather: {
       query: gql`query Weather($limit: Int!){
