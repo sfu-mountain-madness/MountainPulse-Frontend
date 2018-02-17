@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import BurnabyMountain from '@/components/BurnabyMountain'
+import Moment from '@/components/Moment'
+import Statistic from '@/components/Statistic'
+import Collection from '@/components/Collection'
 
 Vue.use(Router)
 
@@ -12,9 +14,19 @@ export default new Router({
       redirect: '/burnaby-mountain'
     },
     {
-      path: '/burnaby-mountain',
-      name: 'BurnabyMountain',
-      component: BurnabyMountain
+      path: '/moments',
+      name: 'moments',
+      component: Moment
+    },
+    {
+      path: '/statistic',
+      name: 'statistic',
+      component: Statistic
+    },
+    {
+      path: '/collection',
+      name: 'collection',
+      component: Collection
     }
   ]
 })
