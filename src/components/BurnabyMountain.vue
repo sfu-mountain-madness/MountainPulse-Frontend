@@ -35,7 +35,7 @@
 <script>
 export default {
   name: 'burnaby-mountain',
-  data () {
+  data() {
     return {
       items: [
         { header: 'Today' },
@@ -83,12 +83,12 @@ export default {
   background: gainsboro;
   cursor: pointer;
 }
-.header-content{
+.header-content {
   font-size: 30px;
   display: block;
   padding-left: 3%;
 }
-.twiters{
+.twiters {
   grid-area: twiters;
   margin: 0 1em 1em 1em;
   overflow: scroll;
