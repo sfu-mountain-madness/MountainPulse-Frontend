@@ -9,8 +9,13 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/moments',
-      name: 'moments',
+      path: '/',
+      name: 'Main',
+      redirect: '/moment'
+    },
+    {
+      path: '/moment',
+      name: 'moment',
       component: Moment
     },
     {
