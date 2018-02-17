@@ -11,11 +11,11 @@ export default new Router({
     {
       path: '/',
       name: 'Main',
-      redirect: '/burnaby-mountain'
+      redirect: '/moment'
     },
     {
-      path: '/moments',
-      name: 'moments',
+      path: '/moment',
+      name: 'moment',
       component: Moment
     },
     {

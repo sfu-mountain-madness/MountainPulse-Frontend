@@ -10,6 +10,7 @@
         <span style="float: left; font-family: 'Andale Mono'">Burnaby Mountain</span>
       </div>
     </div>
+    <router-view/>
     <v-navigation-drawer temporary
                          v-model="drawer"
                          absolute>
@@ -39,7 +40,7 @@
             <v-icon>collections</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            scenery
+            Scenery
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -55,7 +56,6 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <router-view/>
   </v-app>
 </template>
 
@@ -101,6 +101,5 @@ export default {
   font-size: 26px;
   display: block;
   margin-left: 2em;
-  margin-top: 1em;
 }
 </style>
