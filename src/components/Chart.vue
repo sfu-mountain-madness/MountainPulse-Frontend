@@ -1,6 +1,6 @@
 <template>
-  <div class="chart-container">
-    <div id="weatherData" style="min-width:300px;min-height:300px"></div>
+  <div class='chart-container'>
+    <div id='weatherData' style='min-width:300px;min-height:300px'></div>
   </div>
 </template>
 
@@ -22,6 +22,7 @@ export default {
           text: 'Weather'
         },
         tooltip: {
+          trigger: 'axis'
         },
         legend: {
           data: ['Temperature']
@@ -33,9 +34,6 @@ export default {
           type: 'value'
         },
         series: [{
-          type: 'line',
-          data: []
-        }, {
           type: 'line',
           data: []
         }],
@@ -62,11 +60,11 @@ export default {
         }
       },
       update: function (data) {
+        console.log(data)
         const temp = data.weather.map(item => {
           return [item.date, item.temp]
         })
         this.weatherConfig.series[0].data = temp
-        console.log(temp)
         // if (this.weatherChart) {
         //   this.weatherChart.setOption(this.weatherConfig)
         // }
@@ -75,7 +73,6 @@ export default {
       }
     }
   }
-
 }
 </script>
 
