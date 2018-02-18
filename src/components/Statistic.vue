@@ -1,6 +1,6 @@
 <template>
   <div class='chart-container'>
-    <div id='weatherData' style='min-width:90%;min-height:300px'></div>
+    <div id='weatherData' style='min-width:90%;min-height:350px'></div>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import echarts from 'echarts'
 // import Echarts modulde to reduce the bundle size
 import 'echarts/lib/chart/bar'
 import 'echarts/lib/component/tooltip'
-
+import 'echarts/lib/component/grid'
 export default {
   name: 'Statistic',
   data() {
@@ -25,17 +25,43 @@ export default {
           trigger: 'axis'
         },
         legend: {
-          data: ['Temperature']
+          data: ['Temperature', 'Humidity'],
+          x: 'left'
         },
-        xAxis: {
+        axisPointer: {
+          link: { xAxisIndex: 'all' }
+        },
+        grid: [{
+          left: 50,
+          right: 50,
+          height: '20%'
+        }, {
+          left: 50,
+          right: 50,
+          top: '60%',
+          height: '20%'
+        }],
+        xAxis: [{
           type: 'time',
-          splitLine: {
-            show: false
-          }
+          boundaryGap: false
         },
-        yAxis: {
+        {
+          // show: false,
+          gridIndex: 1,
+          type: 'time',
+          boundaryGap: false,
+          // position: 'top'
+        }],
+        yAxis: [{
+          name: 'temperature(`C)',
           type: 'value'
         },
+        {
+          gridIndex: 1,
+          name: 'humidity(%)',
+          type: 'value',
+          // inverse: true
+        }],
         toolbox: {
           left: 'center',
           feature: {
@@ -46,11 +72,22 @@ export default {
             saveAsImage: {}
           }
         },
-        dataZoom: [{
-          startValue: '2018-02-06'
-        }, {
-          type: 'inside'
-        }],
+        dataZoom: [
+          {
+            show: true,
+            realtime: true,
+            start: 30,
+            end: 70,
+            xAxisIndex: [0, 1]
+          },
+          {
+            type: 'inside',
+            realtime: true,
+            start: 30,
+            end: 70,
+            xAxisIndex: [0, 1]
+          }
+        ],
         visualMap: {
           top: 10,
           right: 10,
@@ -84,6 +121,7 @@ export default {
           }
         },
         series: [{
+          name: 'temperature',
           type: 'line',
           symbol: 'circle',
           symbolSize: 5,
@@ -100,20 +138,27 @@ export default {
             }
           },
           data: []
-          // markLine: {
-          //   silent: true,
-          //   data: [{
-          //     yAxis: 0
-          //   }, {
-          //     yAxis: 3
-          //   }, {
-          //     yAxis: 6
-          //   }, {
-          //     yAxis: 8
-          //   }, {
-          //     yAxis: 10
-          //   }]
-          // }
+        },
+        {
+          name: 'humidity',
+          type: 'line',
+          symbol: 'circle',
+          symbolSize: 5,
+          lineStyle: {
+            normal: {
+              width: 1
+            }
+          },
+          itemStyle: {
+            normal: {
+              borderWidth: 1,
+              borderColor: '#77777',
+              color: '#b3b3ff'
+            }
+          },
+          xAxisIndex: 1,
+          yAxisIndex: 1,
+          data: []
         }],
         weather: null
       }
@@ -135,7 +180,8 @@ export default {
       query: gql`query Weather($limit: Int!){
         weather(limit:$limit){
           temp,
-          date
+          date,
+          humidity
         }
       }`,
       variables() {
@@ -148,11 +194,14 @@ export default {
         const temp = data.weather.map(item => {
           return [item.date, item.temp]
         })
+        const humi = data.weather.map(item => {
+          return [item.date, item.humidity]
+        })
         this.weatherConfig.series[0].data = temp
-        // if (this.weatherChart) {
-        //   this.weatherChart.setOption(this.weatherConfig)
-        // }
-        this.weatherChart.setOption(this.weatherConfig)
+        this.weatherConfig.series[1].data = humi
+        if (this.weatherChart) {
+          this.weatherChart.setOption(this.weatherConfig)
+        }
         return data.weather
       }
     }
