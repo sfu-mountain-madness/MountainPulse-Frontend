@@ -49,7 +49,7 @@ export default {
           // show: false,
           gridIndex: 1,
           type: 'time',
-          boundaryGap: false,
+          boundaryGap: false
           // position: 'top'
         }],
         yAxis: [{
@@ -59,7 +59,7 @@ export default {
         {
           gridIndex: 1,
           name: 'humidity(%)',
-          type: 'value',
+          type: 'value'
           // inverse: true
         }],
         toolbox: {

@@ -47,6 +47,14 @@
             Scenery
           </v-list-tile-content>
         </v-list-tile>
+        <v-list-tile @click="goto('/distribution')">
+          <v-list-tile-action>
+            <v-icon>room</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            distribution
+          </v-list-tile-content>
+        </v-list-tile>
       </v-list>
       <v-divider></v-divider>
       <v-list class="developerInfo" dense>

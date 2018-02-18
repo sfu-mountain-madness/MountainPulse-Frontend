@@ -21,10 +21,13 @@
     "graphql": "^0.13.1",
     "graphql-tag": "^2.7.3",
     "vue": "^2.5.2",
+    "vue-amap": "^0.5.0",
     "vue-apollo": "^3.0.0-beta.4",
     "vue-echarts": "^3.0.2",
+    "vue-googlemaps": "0.0.6",
     "vue-router": "^3.0.1",
     "vue-tweet-embed": "^2.1.1",
+    "vue2-google-maps": "^0.8.6",
     "vuetify": "^1.0.1"
   },
   "devDependencies": {

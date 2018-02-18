@@ -4,7 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuetify from 'vuetify'
-
+// google map
+import * as VueGoogleMaps from 'vue2-google-maps'
 // for Apollo
 import {
   ApolloClient
@@ -35,7 +36,16 @@ import('vuetify/dist/vuetify.min.css')
 Vue.use(Vuetify)
 Vue.use(VueApollo)
 Vue.config.productionTip = false
-
+// google map
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyBPj6ER1A4Mxey2Dr8WvKidreaCK_kvG18',
+    libraries: 'places' // This is required if you use the Autocomplete plugin
+    // OR: libraries: 'places,drawing'
+    // OR: libraries: 'places,drawing,visualization'
+    // (as you require)
+  }
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
