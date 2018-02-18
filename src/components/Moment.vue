@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       tweetsId: [],
-      tweetsLimit: 4
+      tweetsLimit: 10
     }
   },
   components: {

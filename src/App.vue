@@ -21,28 +21,28 @@
         </v-card-media>
       </v-card>
       <v-list class="mountainInfo">
-        <v-list-tile @click="goto('/moment')">
+        <v-list-tile @click="goto('/moments')">
           <v-list-tile-action>
             <v-icon>slow_motion_video</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            Moments
+            Tweets
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile @click="goto('/statistic')">
+        <v-list-tile @click="goto('/history')">
           <v-list-tile-action>
             <v-icon>equalizer</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            Statistics
+            History
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile @click="goto('/distribution')">
+        <v-list-tile @click="goto('/sensors')">
           <v-list-tile-action>
             <v-icon>room</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            distribution
+            Sensors
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
