@@ -6,7 +6,7 @@
         <v-icon >menu</v-icon>
       </v-btn>
       <div class="header-content">
-        <v-icon style="float: left; margin-right: 0.5em" x-large>landscape</v-icon>
+        <v-icon style="float: left;" x-large>landscape</v-icon>
         <span style="float: left; font-family: 'Andale Mono'">Burnaby Mountain</span>
       </div>
     </div>
@@ -89,13 +89,14 @@ export default {
   position: absolute;
   height: 100%;
   width: 100%;
-
+  display: flex;
+  flex-direction: column;
 }
 .header{
   display: flex;
   flex-direction: column;
-  grid-row: row 1;
   overflow: hidden;
+  height: 250px;
 }
 .header-content{
   font-size: 26px;
