@@ -28,12 +28,11 @@ export default {
 
 <style scoped>
 .tweets-container{
-  padding-left: 10%;
-  padding-right: 10%;
+  padding: 0 3em 1em 3em;
   overflow: scroll;
 }
 .tweet-item{
-  margin: 1em 0 1em 0;
+  margin: 0.5em 0 0.5em 0;
 }
 .tweet-item:hover{
   box-shadow: 1px 1px 2px 2px darkgray;
