@@ -10,7 +10,7 @@
 import { Tweet } from 'vue-tweet-embed'
 export default {
   name: 'moment',
-  data () {
+  data() {
     return {
       tweetsId: [
         '964976236874252288',
@@ -27,16 +27,18 @@ export default {
 </script>
 
 <style scoped>
-.tweets-container{
-  padding: 0 3em 1em 3em;
+.tweets-container {
+  padding:0 3em 1em 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   overflow: scroll;
 }
-.tweet-item{
+.tweet-item {
   margin: 0.5em 0 0.5em 0;
 }
-.tweet-item:hover{
+.tweet-item:hover {
   box-shadow: 1px 1px 2px 2px darkgray;
   cursor: pointer;
 }
-
 </style>

@@ -52,30 +52,31 @@ export default {
           type: 'inside'
         }],
         visualMap: {
-          top: 30,
+          top: 10,
           right: 10,
+          show: false,
           pieces: [{
             gt: 0,
-            lte: 3,
+            lte: 5,
             color: '#096'
           }, {
-            gt: 3,
-            lte: 6,
+            gt: 5,
+            lte: 10,
             color: '#ffde33'
           }, {
-            gt: 6,
-            lte: 8,
+            gt: 10,
+            lte: 15,
             color: '#ff9933'
           }, {
-            gt: 8,
-            lte: 10,
+            gt: 15,
+            lte: 20,
             color: '#cc0033'
           }, {
-            gt: 10,
-            lte: 17,
+            gt: 20,
+            lte: 25,
             color: '#660099'
           }, {
-            gt: 17,
+            gt: 30,
             color: '#7e0023'
           }],
           outOfRange: {
