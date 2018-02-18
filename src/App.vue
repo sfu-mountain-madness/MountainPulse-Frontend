@@ -2,15 +2,19 @@
   <v-app id="app">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <div class="header">
-      <v-btn style="float: left;" icon dense @click.stop="drawer = !drawer">
-        <v-icon >menu</v-icon>
-      </v-btn>
+      <div style="align-items: center; display: flex">
+        <v-btn style="float: left;" icon dense @click.stop="drawer = !drawer">
+          <v-icon>menu</v-icon>
+        </v-btn>
+      </div>
       <div class="header-content">
-        <v-icon style="float: left; margin-right: 0.5em" x-large>landscape</v-icon>
-        <span style="float: left; font-family: 'Andale Mono'">Burnaby Mountain</span>
+        <div>
+          <span style="float: left; font-family: 'Andale Mono'">Burnaby Mnt.</span>
+          <v-icon style="float: left;" large>landscape</v-icon>
+        </div>
       </div>
     </div>
-    <router-view/>
+    <router-view style="background: #eeeeee"/>
     <v-navigation-drawer temporary
                          v-model="drawer"
                          absolute>
@@ -79,27 +83,32 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
 
-  position: absolute;
-  height: 100%;
-  width: 100%;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
 
-}
-.header{
-  display: flex;
-  flex-direction: column;
-  grid-row: row 1;
-  overflow: hidden;
-}
-.header-content{
-  font-size: 26px;
-  display: block;
-  margin-left: 2em;
-}
+  .header {
+    display: flex;
+    overflow: hidden;
+    min-height: 5em;
+  }
+
+  .header-content {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+    align-content: center;
+    font-size: 1.6em;
+    align-items: center;
+  }
 </style>
