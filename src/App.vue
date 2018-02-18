@@ -14,10 +14,8 @@
         </div>
       </div>
     </div>
-    <router-view style="background: #eeeeee"/>
-    <v-navigation-drawer temporary
-                         v-model="drawer"
-                         absolute>
+    <router-view style="background: #eeeeee" />
+    <v-navigation-drawer temporary v-model="drawer" absolute>
       <v-card>
         <v-card-media :src=mountainImg height="200px">
         </v-card-media>
@@ -50,7 +48,7 @@
       </v-list>
       <v-divider></v-divider>
       <v-list class="developerInfo" dense>
-        <v-list-tile>
+        <v-list-tile @click="jumpToGithub">
           <v-list-tile-action>
             <v-icon>question_answer</v-icon>
           </v-list-tile-action>
@@ -66,7 +64,7 @@
 <script>
 export default {
   name: 'App',
-  data () {
+  data() {
     return {
       drawer: null,
       mountainImg: 'https://file.haoxp.xyz/sfu_logo.jpg'
@@ -75,40 +73,43 @@ export default {
   methods: {
     goto: function (path) {
       this.$router.push(path)
+    },
+    jumpToGithub: function () {
+      window.location = 'https://github.com/sfu-mountain-madness'
     }
   }
 }
 </script>
 
 <style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-  }
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
 
-  .header {
-    display: flex;
-    overflow: hidden;
-    min-height: 5em;
-  }
+.header {
+  display: flex;
+  overflow: hidden;
+  min-height: 5em;
+}
 
-  .header-content {
-    display: flex;
-    flex-grow: 1;
-    justify-content: space-around;
-    align-content: center;
-    font-size: 1.6em;
-    font-weight: bolder;
-    align-items: center;
-    margin-right: 1.2em;
-  }
+.header-content {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-around;
+  align-content: center;
+  font-size: 1.6em;
+  font-weight: bolder;
+  align-items: center;
+  margin-right: 1.2em;
+}
 </style>
