@@ -1,6 +1,6 @@
 <template>
   <div class='chart-container'>
-    <div id='weatherData' style='max-width:80%;min-height:300px'></div>
+    <div id='weatherData' style='min-width:90%;min-height:300px'></div>
   </div>
 </template>
 
@@ -121,6 +121,13 @@ export default {
   mounted: function () {
     this.weatherChart = echarts.init(document.getElementById('weatherData'))
     this.weatherChart.setOption(this.weatherConfig)
+    let self = this
+    window.addEventListener(
+      'onorientationchange' in window ? 'orientationchange' : 'resize', function () {
+        console.log('event happened')
+        self.weatherChart.resize()
+      }
+    )
   },
   apollo: {
     weather: {
@@ -154,6 +161,8 @@ export default {
 
 <style scoped>
 .chart-container {
-  margin-top: 40px;
+  padding-top: 40px;
+  display: flex;
+  justify-content: center;
 }
 </style>
