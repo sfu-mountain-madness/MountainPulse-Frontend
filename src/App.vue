@@ -117,6 +117,8 @@ export default {
     justify-content: space-around;
     align-content: center;
     font-size: 1.6em;
+    font-weight: bolder;
     align-items: center;
+    margin-right: 1.2em;
   }
 </style>

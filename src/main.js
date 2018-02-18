@@ -19,7 +19,7 @@ import {
 import VueApollo from 'vue-apollo'
 // Apollo object
 const httpLink = new HttpLink({
-  uri: 'https://backend.haoxp.xyz/graphql'
+  uri: 'https://mountain.haoxp.xyz/graphql'
 })
 const apolloClient = new ApolloClient({
   link: httpLink,
