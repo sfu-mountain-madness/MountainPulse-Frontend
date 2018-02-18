@@ -1,6 +1,6 @@
 <template>
   <div class='chart-container'>
-    <div id='weatherData' style='min-width:300px;min-height:300px'></div>
+    <div id='weatherData' style='max-width:80%;min-height:300px'></div>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       weatherChart: null,
-      weatherLimit: 10,
+      weatherLimit: 30,
       weatherConfig: {
         title: {
           text: 'Weather'
@@ -28,30 +28,91 @@ export default {
           data: ['Temperature']
         },
         xAxis: {
-          type: 'time'
+          type: 'time',
+          splitLine: {
+            show: false
+          }
         },
         yAxis: {
           type: 'value'
         },
+        toolbox: {
+          left: 'center',
+          feature: {
+            dataZoom: {
+              yAxisIndex: 'none'
+            },
+            restore: {},
+            saveAsImage: {}
+          }
+        },
+        dataZoom: [{
+          startValue: '2018-02-06'
+        }, {
+          type: 'inside'
+        }],
+        visualMap: {
+          top: 30,
+          right: 10,
+          pieces: [{
+            gt: 0,
+            lte: 3,
+            color: '#096'
+          }, {
+            gt: 3,
+            lte: 6,
+            color: '#ffde33'
+          }, {
+            gt: 6,
+            lte: 8,
+            color: '#ff9933'
+          }, {
+            gt: 8,
+            lte: 10,
+            color: '#cc0033'
+          }, {
+            gt: 10,
+            lte: 17,
+            color: '#660099'
+          }, {
+            gt: 17,
+            color: '#7e0023'
+          }],
+          outOfRange: {
+            color: '#999'
+          }
+        },
         series: [{
           type: 'line',
-          symbol: 'triangle',
-          symbolSize: 10,
+          symbol: 'circle',
+          symbolSize: 5,
           lineStyle: {
             normal: {
-              color: 'green',
-              width: 2,
-              type: 'dashed'
+              width: 1
             }
           },
           itemStyle: {
             normal: {
-              borderWidth: 2,
+              borderWidth: 1,
               borderColor: '#77777',
               color: '#b3b3ff'
             }
           },
           data: []
+          // markLine: {
+          //   silent: true,
+          //   data: [{
+          //     yAxis: 0
+          //   }, {
+          //     yAxis: 3
+          //   }, {
+          //     yAxis: 6
+          //   }, {
+          //     yAxis: 8
+          //   }, {
+          //     yAxis: 10
+          //   }]
+          // }
         }],
         weather: null
       }
@@ -60,18 +121,6 @@ export default {
   mounted: function () {
     this.weatherChart = echarts.init(document.getElementById('weatherData'))
     this.weatherChart.setOption(this.weatherConfig)
-    // this.weatherChart.on('click', function (params) {
-    //   console.log('clicked')
-    //   // change the line style
-    //   this.dispatchAction({
-    //     type: 'highlight',
-    //     seriesIndex: params.seriesIndex
-    //   })
-    //   this.dispatchAction({
-    //     type: 'downlight',
-    //     seriesIndex: params.seriesIndex
-    //   })
-    // })
   },
   apollo: {
     weather: {
@@ -104,5 +153,7 @@ export default {
 </script>
 
 <style scoped>
-
+.chart-container {
+  margin-top: 40px;
+}
 </style>
