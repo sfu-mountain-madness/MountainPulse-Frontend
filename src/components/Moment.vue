@@ -41,12 +41,6 @@ export default {
   }
 }
 </script>
-<style>
-.twitter-tweet{
-  /* margin-top: 0 !important; */
-  /* margin-bottom: 0 !important; */
-}
-</style>
 <style scoped>
 .tweets-container {
   padding: 0 1.3em 1em 1.3em;

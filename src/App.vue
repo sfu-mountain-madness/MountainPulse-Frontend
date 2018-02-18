@@ -39,14 +39,6 @@
             Statistics
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile @click="goto('/collection')">
-          <v-list-tile-action>
-            <v-icon>collections</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            Scenery
-          </v-list-tile-content>
-        </v-list-tile>
         <v-list-tile @click="goto('/distribution')">
           <v-list-tile-action>
             <v-icon>room</v-icon>
@@ -77,9 +69,7 @@ export default {
   data () {
     return {
       drawer: null,
-      mountainImg: '//assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2' +
-      'VzLzYzYmQ3NTdmODBkYWVlM2JiZl82ODQ4MTMzNDQxX2RmMTkxMTAyNjZfYi5qcGciXSxbIn' +
-      'AiLCJ0aHVtYiIsIngzOTA-Il0sWyJwIiwiY29udmVydCIsIi1xdWFsaXR5IDgxIC1hdXRvLW9yaWVudCJdXQ'
+      mountainImg: 'https://file.haoxp.xyz/sfu_logo.jpg'
     }
   },
   methods: {
