@@ -10,21 +10,21 @@ export default new Router({
     {
       path: '/',
       name: 'Main',
-      redirect: '/moment'
+      redirect: '/tweets'
     },
     {
-      path: '/moment',
-      name: 'moment',
+      path: '/tweets',
+      name: 'tweets',
       component: Moment
     },
     {
-      path: '/statistic',
-      name: 'statistic',
+      path: '/history',
+      name: 'history',
       component: Statistic
     },
     {
-      path: '/distribution',
-      name: 'distribution',
+      path: '/sensors',
+      name: 'sensors',
       component: Distribution
     }
   ]
